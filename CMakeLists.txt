@@ -7,6 +7,10 @@ project (
 	HOMEPAGE_URL https://github.com/ToreSupra/QCustomPlot
 )
 
+set(CMAKE_AUTOUIC ON)   # Specific to Qt
+set(CMAKE_AUTOMOC ON)   # Specific to Qt
+set(CMAKE_AUTORCC ON)   # Specific to Qt
+
 find_package(
     Qt6
     COMPONENTS
