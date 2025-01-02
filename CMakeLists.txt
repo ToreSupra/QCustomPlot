@@ -42,8 +42,7 @@ target_sources(
 target_include_directories(
     ${TARGET_STATIC}
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-        $<INSTALL_INTERFACE:include>
+        ${CMAKE_CURRENT_LIST_DIR}
 )
 
 target_link_libraries(
