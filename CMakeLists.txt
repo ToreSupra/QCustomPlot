@@ -39,6 +39,13 @@ target_sources(
         qcustomplot.cpp
 )
 
+target_include_directories(
+    ${TARGET_STATIC}
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..>
+        $<INSTALL_INTERFACE:..>
+)
+
 target_link_libraries(
     ${TARGET_STATIC}
     PUBLIC
@@ -46,4 +53,19 @@ target_link_libraries(
 		Qt::Gui
 		Qt::Widgets
 		Qt::PrintSupport
+)
+
+set_target_properties(
+    ${TARGET_STATIC}
+    PROPERTIES
+        OUTPUT_NAME "qcustomplot"
+        ARCHIVE_OUTPUT_NAME "qcustomplot"
+        VERSION ${PROJECT_VERSION}
+        POSITION_INDEPENDENT_CODE ON
+)
+
+target_compile_definitions(
+    ${TARGET_STATIC}
+        PUBLIC
+        QCUSTOMPLOT_STATIC_DEFINE
 )
